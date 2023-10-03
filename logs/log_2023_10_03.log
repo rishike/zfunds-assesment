@@ -1,0 +1,7 @@
+15:30:35 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+15:30:35 INFO [33mPress CTRL+C to quit[0m
+15:30:35 INFO  * Restarting with stat
+15:30:36 WARNING  * Debugger is active!
+15:30:36 INFO  * Debugger PIN: 943-604-082
+15:30:43 INFO 127.0.0.1 - - [03/Oct/2023 15:30:43] "POST /api/generate-otp HTTP/1.1" 200 -

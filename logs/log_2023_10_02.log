@@ -1,0 +1,54 @@
+03:37:43 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+03:37:43 INFO [33mPress CTRL+C to quit[0m
+03:37:43 INFO  * Restarting with stat
+03:37:44 WARNING  * Debugger is active!
+03:37:44 INFO  * Debugger PIN: 943-604-082
+03:39:59 INFO  * Detected change in 'F:\\python\\zfunds\\server.py', reloading
+03:39:59 INFO  * Restarting with stat
+03:39:59 WARNING  * Debugger is active!
+03:39:59 INFO  * Debugger PIN: 943-604-082
+03:40:21 INFO  * Detected change in 'F:\\python\\zfunds\\server.py', reloading
+03:40:22 INFO  * Restarting with stat
+03:40:22 WARNING  * Debugger is active!
+03:40:22 INFO  * Debugger PIN: 943-604-082
+03:40:43 INFO  * Detected change in 'F:\\python\\zfunds\\server.py', reloading
+03:40:43 INFO  * Restarting with stat
+03:40:44 WARNING  * Debugger is active!
+03:40:44 INFO  * Debugger PIN: 943-604-082
+03:43:20 INFO  * Detected change in 'F:\\python\\zfunds\\app\\models\\User.py', reloading
+03:43:20 INFO  * Restarting with stat
+03:43:21 WARNING  * Debugger is active!
+03:43:21 INFO  * Debugger PIN: 943-604-082
+03:43:25 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+03:43:25 INFO [33mPress CTRL+C to quit[0m
+03:43:25 INFO  * Restarting with stat
+03:43:26 WARNING  * Debugger is active!
+03:43:26 INFO  * Debugger PIN: 943-604-082
+03:43:45 INFO  * Detected change in 'F:\\python\\zfunds\\app\\models\\User.py', reloading
+03:43:45 INFO  * Restarting with stat
+03:43:45 WARNING  * Debugger is active!
+03:43:45 INFO  * Debugger PIN: 943-604-082
+03:44:29 INFO  * Detected change in 'F:\\python\\zfunds\\app\\models\\User.py', reloading
+03:44:30 INFO  * Restarting with stat
+03:44:30 WARNING  * Debugger is active!
+03:44:30 INFO  * Debugger PIN: 943-604-082
+03:44:33 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+03:44:33 INFO [33mPress CTRL+C to quit[0m
+03:44:33 INFO  * Restarting with stat
+03:44:34 WARNING  * Debugger is active!
+03:44:34 INFO  * Debugger PIN: 943-604-082
+03:44:50 INFO  * Detected change in 'F:\\python\\zfunds\\app\\models\\User.py', reloading
+03:44:50 INFO  * Restarting with stat
+03:44:50 WARNING  * Debugger is active!
+03:44:50 INFO  * Debugger PIN: 943-604-082
+03:47:28 INFO  * Detected change in 'F:\\python\\zfunds\\server.py', reloading
+03:47:28 INFO  * Restarting with stat
+03:47:29 WARNING  * Debugger is active!
+03:47:29 INFO  * Debugger PIN: 943-604-082
+03:47:33 INFO  * Detected change in 'F:\\python\\zfunds\\server.py', reloading
+03:47:33 INFO  * Restarting with stat
+03:47:34 WARNING  * Debugger is active!
+03:47:34 INFO  * Debugger PIN: 943-604-082
