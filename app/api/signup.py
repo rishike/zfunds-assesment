@@ -2,19 +2,20 @@ from flask_restful import Resource, reqparse
 from app.models.User import User, OTP
 from app.utlity.helper import generate_otp
 from database import db
-from flask import request
 import jwt
 from flask import current_app as app
 
-class RequestOtp(Resource):
+class RequestOtpApi(Resource):
     
     
     def post(self):
-         
+        
+        app.logger.info("calling RequestOtpApi")
         parser = reqparse.RequestParser()
         parser.add_argument('mobile_number', type=str, required=True)
         args = parser.parse_args()
-
+        
+        app.logger.info(f"{args} requested data")
     
         mobile =  args['mobile_number']
         
@@ -23,22 +24,27 @@ class RequestOtp(Resource):
         exist_otp = OTP.query.filter_by(mobile_number=mobile).first()
         if exist_otp:
             exist_otp.otp = otp
+            app.logger.info(f"otp already exists. Updating with new otp.")
         else:
             otp_entry = OTP(mobile_number=mobile, otp=otp)
             db.session.add(otp_entry)
             
         db.session.commit()
+        app.logger.info("Successfully send and generate otp")
         
         return {'message': 'OTP sent successfully.', 'OTP': otp}
 
-class AdvisorSignup(Resource):
+class AdvisorSignupApi(Resource):
   
     def post(self):
         
+        app.logger.info("calling AdvisorSignupApi")
         parser = reqparse.RequestParser()
         parser.add_argument('mobile_number', type=str, required=True)
         parser.add_argument('otp', type=int, required=True)
         args = parser.parse_args()
+        
+        app.logger.info(f"{args} requested data")
     
     
         mobile =  args['mobile_number']
@@ -65,15 +71,17 @@ class AdvisorSignup(Resource):
             db.session.add(new_advisor)
             payload = {'user_id': new_advisor.id, 'role': new_advisor.role}
         db.session.commit()
-        
+        app.logger.info("advisor created successfully")
         
         token = jwt.encode(payload, jwt_secret_key, algorithm='HS256')
+        app.logger.info(f"{token} generated.")
 
         return {'message': 'Advisor account created successfully', 'token': token}, 201
 
-class UserSignup(Resource):
+class UserSignupApi(Resource):
     
     def post(self):
+        app.logger.info("calling UserSignupApi")
         parser = reqparse.RequestParser()
         parser.add_argument('name', type=str, required=True)
         parser.add_argument('mobile_number', type=str, required=True)
@@ -99,7 +107,9 @@ class UserSignup(Resource):
         new_user = User(name=name, mobile_number=mobile, role='user', verified=True)
         db.session.add(new_user)
         db.session.commit()
-
+        
+        app.logger.info("Successfully created User")
+        
         return {
             'message': 'User account created successfully',
             'name': name,

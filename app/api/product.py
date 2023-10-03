@@ -4,16 +4,16 @@ from flask import current_app as app
 from app.models.Product import Category, Product
 from app.models.Purchase import Purchase
 from app.models.User import User
-from app.utlity.helper import custom_jwt_required
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 
 
-class AddProduct(Resource):
+class AddProductApi(Resource):
     
     @jwt_required()
     def post(self):
+        app.logger.info("calling AddProductApi")
         parser = reqparse.RequestParser()
         parser.add_argument('product_name', type=str, required=True)
         parser.add_argument('description', type=str, required=True)
@@ -26,12 +26,13 @@ class AddProduct(Resource):
         if not admin_user:
             return {'message': 'Only admin can add products.'}, 401
 
-        
-        category = Category.query.filter_by(name=args['category_name']).first()
+        category_name = args['category_name']
+        category = Category.query.filter_by(name=category_name).first()
         if not category:
-            category = Category(name=args['category_name'])
+            category = Category(name=category_name)
             db.session.add(category)
             db.session.commit()
+            app.logger.info(f"created new category {category_name}")
 
         # Create a new product
         new_product = Product(
@@ -41,6 +42,7 @@ class AddProduct(Resource):
         )
         db.session.add(new_product)
         db.session.commit()
+        app.logger.info("Successfully added product")
 
         return {
             'message': 'Product added successfully',
@@ -50,8 +52,10 @@ class AddProduct(Resource):
         }, 201
 
 
-class GetProductDetails(Resource):
+class GetProductDetailsApi(Resource):
     def get(self, purchase_id):
+        
+        app.logger.info("calling GetProductDetailsApi")
         purchase = Purchase.query.get(purchase_id)
 
         if not purchase:

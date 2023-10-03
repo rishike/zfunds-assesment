@@ -30,7 +30,6 @@ def custom_jwt_required(fn):
     def wrapper(*args, **kwargs):
         try:
             current_claims = get_jwt_identity()
-            print(current_claims)
             
             if 'admin' in current_claims.get('roles', []):
                 return fn(*args, **kwargs)
